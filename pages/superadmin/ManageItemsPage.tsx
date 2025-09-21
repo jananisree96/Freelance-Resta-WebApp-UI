@@ -1,4 +1,5 @@
 
+
 import React, { useState, useMemo } from 'react';
 import { Dish } from '../../types';
 import { DUMMY_MENU } from '../../constants';
@@ -186,7 +187,7 @@ const ManageItemsPage: React.FC = () => {
                 </div>
                 
                 {paginatedItems.length > 0 ? (
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
                         {paginatedItems.map(item => (
                             <ItemCard key={item.id} item={item} onEdit={() => handleOpenModal(item)} onDelete={() => handleOpenDeleteModal(item)} />
                         ))}
