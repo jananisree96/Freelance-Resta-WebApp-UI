@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-g" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@400;500;600&display=swap');
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'primary': '#DB2777',      // Pink-600
+              'secondary': '#F472B6',    // Pink-400
+              'accent': '#FFFFFF',       // White
+              'neutral': '#1F2937',      // Gray-800 (For text)
+              'neutral-800': '#374151',  // Gray-700 (For sub-text)
+              'base-100': '#FFFFFF',     // White (For backgrounds)
+              'base-200': '#F3F4F6',     // Gray-100 (For slightly off-white backgrounds)
+              'base-300': '#E5E7EB',     // Gray-200 (For borders)
+              'info': '#3B82F6',
+              'success': '#16A34A',
+              'warning': '#F59E0B',
+              'error': '#dc2626',
+            },
+            fontFamily: {
+                sans: ['Poppins', 'sans-serif'],
+                serif: ['Playfair Display', 'serif'],
+            },
+            animation: {
+              'fade-in-up': 'fade-in-up 1s ease-out forwards',
+            },
+            keyframes: {
+              'fade-in-up': {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+            }
+          },
+        },
+      };
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-base-100 text-neutral font-sans">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

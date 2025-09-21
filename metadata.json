@@ -1,0 +1,5 @@
+{
+  "name": "Resta",
+  "description": "A comprehensive restaurant management web application for 'Resta' that provides a seamless experience for customers, staff, admins, and super admins with role-based access and AI-powered analytics.",
+  "requestFramePermissions": []
+}
