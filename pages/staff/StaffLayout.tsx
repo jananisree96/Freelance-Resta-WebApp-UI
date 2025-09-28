@@ -7,6 +7,7 @@ import MenuIcon from '../../components/icons/MenuIcon';
 import CreditCardIcon from '../../components/icons/CreditCardIcon';
 import LogoutIcon from '../../components/icons/LogoutIcon';
 import UserIcon from '../../components/icons/UserIcon';
+import ClipboardListIcon from '../../components/icons/ClipboardListIcon';
 
 
 interface NavItemProps {
@@ -46,6 +47,7 @@ const Sidebar: React.FC<{ onLinkClick: () => void }> = ({ onLinkClick }) => (
             <NavItem to="/" icon={<DashboardIcon className="w-5 h-5" />} onClick={onLinkClick}>Dashboard</NavItem>
             <NavItem to="/new-order" icon={<MenuIcon className="w-5 h-5" />} onClick={onLinkClick}>New Order</NavItem>
             <NavItem to="/checkout" icon={<CreditCardIcon className="w-5 h-5" />} onClick={onLinkClick}>Checkout & Payment</NavItem>
+            <NavItem to="/order-history" icon={<ClipboardListIcon className="w-5 h-5" />} onClick={onLinkClick}>Order History</NavItem>
         </nav>
     </div>
 );

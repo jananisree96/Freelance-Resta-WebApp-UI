@@ -1,5 +1,8 @@
+
 import React, { useMemo } from 'react';
 import { useAuth } from '../../context/AuthContext';
+import { DUMMY_USERS, DUMMY_MENU } from '../../constants';
+import { Role } from '../../types';
 import RolesIcon from '../../components/icons/RolesIcon';
 import UsersIcon from '../../components/icons/UsersIcon';
 import ItemsIcon from '../../components/icons/ItemsIcon';
@@ -23,6 +26,11 @@ const StatCard: React.FC<{ title: string, value: string, icon: React.ReactNode }
 const SuperAdminDashboard: React.FC = () => {
     const { user } = useAuth();
 
+    const totalUsers = useMemo(() => DUMMY_USERS.length, []);
+    const adminCount = useMemo(() => DUMMY_USERS.filter(u => u.role === Role.ADMIN).length, []);
+    const staffCount = useMemo(() => DUMMY_USERS.filter(u => u.role === Role.STAFF).length, []);
+    const menuItemsCount = useMemo(() => DUMMY_MENU.length, []);
+
     // Full dummy data for profit
     const allProfitData = useMemo(() => [
         { name: 'Food Sales', value: 450000, color: '#DB2777' },      // primary
@@ -32,10 +40,10 @@ const SuperAdminDashboard: React.FC = () => {
         { name: 'Service Charges', value: 95000, color: '#a5b4fc' },    // indigo-300
     ], []);
 
-    const userRoleData = [
-        { label: 'Users', value: 1254, color: '#DB2777' }, // primary
+    const userRoleData = useMemo(() => [
+        { label: 'Users', value: totalUsers, color: '#DB2777' }, // primary
         { label: 'Roles', value: 4, color: '#F472B6' }, // secondary
-    ];
+    ], [totalUsers]);
     
     return (
         <div>
@@ -46,10 +54,12 @@ const SuperAdminDashboard: React.FC = () => {
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <StatCard title="Total Users" value="1,254" icon={<UsersIcon className="w-6 h-6" />} />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <StatCard title="Total Users" value={totalUsers.toLocaleString()} icon={<UsersIcon className="w-6 h-6" />} />
                 <StatCard title="Total Roles" value="4" icon={<RolesIcon className="w-6 h-6" />} />
-                <StatCard title="Menu Items" value="68" icon={<ItemsIcon className="w-6 h-6" />} />
+                <StatCard title="Total Admins" value={adminCount.toString()} icon={<UsersIcon className="w-6 h-6" />} />
+                <StatCard title="Total Staff" value={staffCount.toString()} icon={<UsersIcon className="w-6 h-6" />} />
+                <StatCard title="Menu Items" value={menuItemsCount.toString()} icon={<ItemsIcon className="w-6 h-6" />} />
                 <StatCard title="Branches" value="12" icon={<BuildingIcon className="w-6 h-6" />} />
             </div>
 
