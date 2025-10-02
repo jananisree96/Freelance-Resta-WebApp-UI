@@ -2,7 +2,6 @@ import React from "react";
 import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
-import { Role } from "./types";
 
 // Pages
 import LoginPage from "./pages/LoginPage";
@@ -32,7 +31,15 @@ import ManageUsersPage from "./pages/superadmin/ManageUsersPage";
 import ManageItemsPage from "./pages/superadmin/ManageItemsPage";
 import { NotificationProvider } from "./context/NotificationContext";
 
-const AppRoutes: React.FC = () => {
+// Roles as plain object (replace your TypeScript enum)
+const Role = {
+  CUSTOMER: "customer",
+  STAFF: "staff",
+  ADMIN: "admin",
+  SUPERADMIN: "superadmin",
+};
+
+function AppRoutes() {
   const { user, loading } = useAuth();
 
   if (loading) {
@@ -105,9 +112,9 @@ const AppRoutes: React.FC = () => {
     default:
       return <Navigate to="/login" />;
   }
-};
+}
 
-const App: React.FC = () => {
+function App() {
   return (
     <AuthProvider>
       <NotificationProvider>
@@ -119,6 +126,6 @@ const App: React.FC = () => {
       </NotificationProvider>
     </AuthProvider>
   );
-};
+}
 
 export default App;
